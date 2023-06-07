@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:app_sem11_s2_2/MyContactDetail.dart';
 
 void main() {
   runApp(const MyApp());
@@ -66,6 +67,12 @@ class _MyContactListState extends State<MyContactList> {
               backgroundImage: NetworkImage(data?[i]['picture']['thumbnail']),
             ),
             trailing: Text(data?[i]['email']),
+            onTap: (){
+              Navigator.push(
+                context, MaterialPageRoute(
+                  builder: (BuildContext context) =>
+                      MyContactDetail(data?[i])));
+            },
           );
         }
       )
